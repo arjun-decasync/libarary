@@ -10,6 +10,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const usersignup = () => {
   const [name, setName] = useState("");
@@ -45,13 +46,15 @@ const usersignup = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3001/create", {
+      .post("http://localhost:3001/register", {
         name,
         mobile,
         password,
-        confirmPassword,
       })
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        navigate("/userlogin");
+      })
       .catch((error) => console.log(error));
 
     if (validateForm()) {

@@ -32,6 +32,19 @@ const userlogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    axios
+      .post("http://localhost:3001/login", {
+        mobile,
+        password,
+      })
+      .then((result) => {
+        console.log(result);
+        if (result.data === "Success") {
+          navigate("/home");
+        }
+      })
+      .catch((error) => console.log(error));
+
     if (validateForm()) {
       console.log({
         mobile,
