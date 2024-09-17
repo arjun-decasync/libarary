@@ -1,0 +1,64 @@
+/* .card_body_section1 {
+  min-height: 400px;
+}
+
+.card_body_section2 {
+  min-height: 190px;
+} */
+
+.card_body_section1 {
+    max-height: 400px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card_body_section2 {
+    max-height: 190px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Effect on image hover */
+  .card_body_section1 img,
+  .card_body_section2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  .card_body_section1:hover img,
+  .card_body_section2:hover img {
+    transform: scale(1.1); /* Zoom-in effect */
+    opacity: 0.9; /* Slight transparency */
+  }
+  
+  .card_body_section1:hover,
+  .card_body_section2:hover {
+    transform: translateY(-5px); /* Lift the card */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  }
+  
+  /* Optional: Smooth transition effect when card loads */
+  .card_body_section1,
+  .card_body_section2 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

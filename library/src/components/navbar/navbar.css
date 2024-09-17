@@ -1,0 +1,71 @@
+.main_body {
+  background-color: #303437;
+  padding: 0.5rem 1rem;
+}
+
+.heading {
+  font-size: 1.5rem;
+  color: #f8f9fa;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="%23fff" stroke-width="2" d="M5 7h20M5 15h20M5 23h20" /%3E%3C/svg%3E');
+}
+
+.offcanvas-body {
+  padding: 1rem;
+}
+
+.font_size_adjustment {
+  font-weight: bold;
+}
+
+.reg_title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+.button-success,
+.button-warning {
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.button-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.button-warning {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.button-success:hover,
+.button-warning:hover {
+  opacity: 0.9;
+}
+
+.card-img-top,
+.button-success,
+.button-warning {
+  transition: all 0.3s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}

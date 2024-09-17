@@ -1,0 +1,80 @@
+.contact_main_section {
+  background: #f5f7f9;
+  padding: 40px 0;
+}
+
+.contact_card_section {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact_centered-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_centered-img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .contact_centered-img {
+    display: none;
+  }
+}
+
+.contact_get_in_touch {
+  padding: 20px;
+}
+
+.contact_get_in_touch h2 {
+  color: #2c3e50;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.contact_get_in_touch .form-group {
+  margin-bottom: 20px;
+}
+
+.contact_get_in_touch .form-label {
+  color: #34495e;
+  font-weight: bold;
+}
+
+.contact_get_in_touch .form-control {
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.contact_get_in_touch .form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+}
+
+.contact_button {
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.contact_button:hover {
+  background-color: #2980b9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact_button:active {
+  background-color: #1c4f73;
+}
