@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./sellingAddbook.css";
 
 import Container from "react-bootstrap/Container";
@@ -10,9 +10,12 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const sellingAddbook = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     bookName: "",
     authorName: "",
@@ -24,8 +27,14 @@ const sellingAddbook = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Check if we are in "Edit" mode
+  useEffect(() => {
+    if (location.state && location.state.book) {
+      setFormData(location.state.book);
+    }
+  }, [location]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,33 +72,31 @@ const sellingAddbook = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
+
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:3001/add_book",
-        formData
-      );
-      console.log("Response from server:", response.data);
+      if (location.state && location.state.book) {
+        // If editing an existing book
+        await axios.put(
+          `http://localhost:3001/books/${formData._id}`,
+          formData
+        );
+        alert("Book updated successfully!");
+      } else {
+        // Adding a new book
+        await axios.post("http://localhost:3001/add_book", formData);
+        alert("Book added successfully!");
+      }
 
-      // Clear form data if submission is successful
-      setFormData({
-        bookName: "",
-        authorName: "",
-        bookLanguage: "",
-        category: "",
-        bookPrice: "",
-        copies: "",
-        bookValue: "",
-      });
-
-      alert("Book added successfully!");
       navigate("/sellingHomepage");
     } catch (error) {
       console.error("There was an error submitting the form", error);
-      alert("Error adding the book. Please try again.");
+      alert("Error adding/updating the book. Please try again.");
     }
   };
 
@@ -100,7 +107,12 @@ const sellingAddbook = () => {
           <Alert variant="success">Book details added successfully!</Alert>
         )} */}
         <Card className="sell_book_card">
-          <h1 className="book_deatils_heading">Book Details</h1>
+          <h1 className="book_deatils_heading">
+            {" "}
+            {location.state && location.state.book
+              ? "Edit Book Details"
+              : "Add Book Details"}
+          </h1>
 
           <Form onSubmit={handleSubmit}>
             <Row>
@@ -276,7 +288,7 @@ const sellingAddbook = () => {
             </Row>
 
             <Button type="submit" className="book_button">
-              Add
+              {location.state && location.state.book ? "Update" : "Add"}
             </Button>
           </Form>
         </Card>

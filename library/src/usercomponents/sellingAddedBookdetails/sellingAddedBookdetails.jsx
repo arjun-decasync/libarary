@@ -6,10 +6,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Spinner from 'react-bootstrap/Spinner';
+
+import { useNavigate } from "react-router-dom";
 
 const sellingAddedBookdetails = () => {
   const [bookDetails, setBookDetails] = useState(null); // State to store book details
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -37,11 +39,13 @@ const sellingAddedBookdetails = () => {
     }
   };
 
-  
+  const handleEdit = (book) => {
+    navigate("/sellingAddbook", { state: { book } });
+  };
 
   // Render loading state if book details are not yet fetched
   if (!bookDetails) {
-    return <div><Spinner animation="border" /></div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -79,7 +83,9 @@ const sellingAddedBookdetails = () => {
               </Col>
               <Col xs={12} sm={6} md={3}>
                 <div className="sellind_add_book_veiw_button">
-                  <Button variant="success">Edit</Button>{" "}
+                  <Button variant="success" onClick={() => handleEdit(book)}>
+                    Edit
+                  </Button>
                   <Button variant="danger" onClick={() => deleteBook(book._id)}>
                     Delete
                   </Button>{" "}
