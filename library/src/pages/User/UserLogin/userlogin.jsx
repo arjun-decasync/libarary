@@ -9,10 +9,15 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const userlogin = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -32,6 +37,13 @@ const userlogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    if (validateForm()) {
+      console.log({
+        mobile,
+        password,
+      });
+    }
+
     axios
       .post("http://localhost:3001/login", {
         mobile,
@@ -39,19 +51,32 @@ const userlogin = () => {
       })
       .then((result) => {
         console.log(result);
-        if (result.data === "Success") {
-          navigate("/home");
+        // If login is successful, redirect to the home page
+        if (result.status === 200 && result.data === "Success") {
+          navigate("/home"); // Redirect to the home page
+        } else {
+          // Handle any unexpected response
+          console.log("Unexpected response:", result.data);
         }
       })
-      .catch((error) => console.log(error));
-
-    if (validateForm()) {
-      console.log({
-        mobile,
-        password,
+      .catch((error) => {
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.error
+        ) {
+          // Display error from the backend (e.g., invalid credentials)
+          setErrors({ loginError: error.response.data.error });
+        } else {
+          // Handle other errors, such as server issues
+          console.error("Login error:", error);
+          setErrors({
+            loginError: "An unexpected error occurred. Please try again later.",
+          });
+        }
       });
-    }
   };
+
   return (
     <div>
       <Container>
@@ -98,6 +123,9 @@ const userlogin = () => {
                     </Button>
                     <Form.Text className="text_muted">
                       Don't have an account?<a href="/usersignup">Sign Up</a>
+                    </Form.Text>
+                    <Form.Text className="text-danger">
+                      {errors.loginError && <p>{errors.loginError}</p>}
                     </Form.Text>
                   </Form>
                 </Card>

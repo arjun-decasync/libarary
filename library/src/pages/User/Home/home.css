@@ -1,0 +1,21 @@
+.home_container {
+  margin-top: 150px;
+}
+
+.home_image_card {
+  max-height: 390px;
+  max-height: 390px;
+}
+
+.home_image {
+  max-height: 310px;
+  max-height: 310px;
+}
+
+.background-container {
+  background-image: url("https://4kwallpapers.com/images/wallpapers/open-book-illustration-reflection-black-background-red-6000x4000-5478.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  min-height: 700px;
+}

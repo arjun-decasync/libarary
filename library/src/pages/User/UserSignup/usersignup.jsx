@@ -19,6 +19,8 @@ const usersignup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
+  const navigate = useNavigate();
+
   const validateForm = () => {
     const newErrors = {};
 
@@ -45,18 +47,6 @@ const usersignup = () => {
   const handleSignup = (e) => {
     e.preventDefault();
 
-    axios
-      .post("http://localhost:3001/register", {
-        name,
-        mobile,
-        password,
-      })
-      .then((result) => {
-        console.log(result);
-        navigate("/userlogin");
-      })
-      .catch((error) => console.log(error));
-
     if (validateForm()) {
       console.log({
         name,
@@ -65,6 +55,40 @@ const usersignup = () => {
         confirmPassword,
       });
     }
+
+    axios
+      .post("http://localhost:3001/register", {
+        name,
+        mobile,
+        password,
+      })
+      .then((result) => {
+        console.log(result);
+        // If signup is successful, redirect to the login page
+        if (result.status === 201) {
+          navigate("/userlogin"); // Redirect to the login page after successful registration
+        } else {
+          // Handle any unexpected response
+          console.log("Unexpected response:", result.data);
+        }
+      })
+      .catch((error) => {
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.error
+        ) {
+          // Display error from the backend (e.g., mobile number already exists)
+          setErrors({ signupError: error.response.data.error });
+        } else {
+          // Handle other errors, such as server issues
+          console.error("Signup error:", error);
+          setErrors({
+            signupError:
+              "An unexpected error occurred. Please try again later.",
+          });
+        }
+      });
   };
 
   return (
@@ -142,6 +166,9 @@ const usersignup = () => {
                     </Button>
                     <Form.Text className="text_muted">
                       Do you have an account?<a href="/userlogin">Login</a>
+                    </Form.Text>
+                    <Form.Text className="text-danger">
+                      {errors.signupError && <p>{errors.signupError}</p>}
                     </Form.Text>
                   </Form>
                 </Card>

@@ -1,0 +1,129 @@
+.whole_section {
+  margin-top: 90px;
+}
+
+.seller_card_section {
+  height: 100px;
+  background: linear-gradient(135deg, #d1c4e9, #ffecb3);
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.seller_card_section:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.seller_user_icon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: #7e57c2;
+  background: radial-gradient(
+    circle,
+    rgba(103, 58, 183, 0.3),
+    rgba(103, 58, 183, 0.5)
+  );
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.seller_user_name {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  z-index: 1;
+}
+
+.seller_user_button {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.seller_user_button Button {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.seller_user_button Button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .seller_user_icon {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    left: 5%;
+  }
+
+  .seller_user_name {
+    font-size: 16px;
+    left: 25%;
+  }
+
+  .seller_user_button {
+    right: 5%;
+  }
+}
+
+@media (max-width: 576px) {
+  .seller_card_section {
+    height: auto;
+    padding: 15px;
+  }
+
+  .seller_user_icon,
+  .seller_user_name,
+  .seller_user_button {
+    position: static;
+    transform: none;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .seller_user_icon {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+  }
+
+  .seller_user_name {
+    font-size: 14px;
+  }
+
+  .seller_user_button Button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

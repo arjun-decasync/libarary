@@ -1,0 +1,111 @@
+.sell_book_card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  color: #fff;
+}
+
+.book_deatils_heading {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #f8f9fa;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px #ff6b6b;
+}
+
+.book_form_section {
+  margin-bottom: 20px;
+}
+
+.sell_book_form_control {
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #f5f7fa;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.sell_book_form_control:focus {
+  border-color: #66a6ff;
+  box-shadow: 0px 0px 5px #66a6ff;
+}
+
+.sell_book_form_label {
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px #ff6b6b;
+}
+
+.sell_book_form_select {
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #f5f7fa;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.sell_book_form_select:focus {
+  border-color: #66a6ff;
+  box-shadow: 0px 0px 5px #66a6ff;
+}
+
+.card_book_image_section {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.sell_book_form_check input {
+  margin-right: 8px;
+  background-color: #66a6ff;
+  border-color: #ff6b6b;
+}
+
+.sell_book_form_check label {
+  font-weight: bold;
+  color: #fff;
+}
+
+.book_form_section .sell_book_form_check {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .book_deatils_heading {
+    font-size: 28px;
+  }
+
+  .card-book-image-section {
+    margin-bottom: 20px;
+  }
+
+  .book_form_section {
+    margin-bottom: 15px;
+  }
+}
+.book_button {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100px;
+}
+
+.book_button:hover {
+  background-color: #ff3f3f;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
