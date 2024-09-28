@@ -10,6 +10,7 @@ import AdminSignupPage from "./pages/Admin/AdminSignup/adminsignup.jsx";
 import UserHome from "./pages/User/Home/home.jsx";
 import SellingHomepage from "./pages/User/Selling/sellingHomepage/sellinghome.jsx";
 import SellingAddbook from "./pages/User/Selling/sellingAddBook/sellingAddbook.jsx";
+import BuyingHomepage from "./pages/User/Buying/buyingHomepage/buyingHomepage.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/home" element={<UserHome />} />
           <Route path="/sellingHomepage" element={<SellingHomepage />} />
           <Route path="/sellingAddbook" element={<SellingAddbook />} />
+          <Route path="/buyingHomepage" element={<BuyingHomepage />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,0 +1,128 @@
+.buying_container {
+  margin-top: 100px;
+}
+
+.buying_filter_category,
+.buying_filter_book_value,
+.buying_filter_search,
+.buying_filter_button {
+  margin-bottom: 15px;
+}
+
+.buying_filter_category select,
+.buying_filter_book_value select,
+.buying_filter_search input {
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid #007bff;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.buying_filter_category select:focus,
+.buying_filter_book_value select:focus,
+.buying_filter_search input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.buying_filter_button {
+  width: 100px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 8px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.buying_filter_button :hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .buying_filter_category,
+  .buying_filter_book_value,
+  .buying_filter_search,
+  .buying_filter_button {
+    margin-bottom: 10px;
+  }
+
+  .buying_filter_button {
+    font-size: 14px;
+  }
+}
+
+.buying_book_details_card {
+  background: linear-gradient(145deg, #ff9a9e, #fad0c4, #fad0c4);
+  border: none;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.buying_book_details_card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.buying_book_details_card img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 220px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.buying_book_details_card:hover img {
+  opacity: 0.9;
+}
+
+.buying_book_details_card_body {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+}
+
+.buying_book_details_p_tag p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.buying_book_details_card_body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+}
+
+.buying_book_details_button {
+  background: linear-gradient(145deg, #00c6ff, #0072ff);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.buying_book_details_button:hover {
+  background: linear-gradient(145deg, #0072ff, #00c6ff);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .buying_book_details_p_tag {
+    text-align: center;
+  }
+}

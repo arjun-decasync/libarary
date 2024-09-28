@@ -12,7 +12,7 @@ import Usernavbar from "../../../usercomponents/userNavbar/usernavbar";
 
 const home = () => {
   return (
-    <div className="background-container">
+    <div>
       <div>
         <Usernavbar />
       </div>
@@ -20,7 +20,7 @@ const home = () => {
       <div>
         <Container className="home_container">
           <Row>
-            <Col xs={12} sm={6} md={6}>
+            <Col xs={12} sm={12} md={6}>
               <Card className="home_image_card">
                 <Card.Img
                   variant="top"
@@ -28,11 +28,13 @@ const home = () => {
                   className="home_image"
                 />
                 <Card.Body>
-                  <Button variant="primary">Buy Books</Button>
+                  <Button variant="primary" href="/buyingHomepage">
+                    Buy Books
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
-            <Col xs={12} sm={6} md={6}>
+            <Col xs={12} sm={12} md={6}>
               <Card className="home_image_card">
                 <Card.Img
                   variant="top"

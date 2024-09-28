@@ -1,111 +1,89 @@
+/* General container styling */
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #F4DF4EFF; /* Vibrant yellow background */
+}
+
+/* Card styling */
 .sell_book_card {
   background-color: #fff;
-  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #89f7fe, #66a6ff);
-  color: #fff;
+  border: 1px solid #F4DF4EFF; /* Grey border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 30px;
 }
 
+/* Heading styling */
 .book_deatils_heading {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 28px;
+  color: #949398FF; /* Grey heading */
+  font-weight: 700;
   text-align: center;
-  color: #f8f9fa;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px #ff6b6b;
+  margin-bottom: 25px;
 }
 
+/* Form section styling */
 .book_form_section {
   margin-bottom: 20px;
 }
 
-.sell_book_form_control {
-  border-radius: 8px;
-  border: none;
-  padding: 12px;
-  font-size: 16px;
-  background-color: #f5f7fa;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.sell_book_form_control:focus {
-  border-color: #66a6ff;
-  box-shadow: 0px 0px 5px #66a6ff;
-}
-
 .sell_book_form_label {
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 1px 1px #ff6b6b;
+  font-size: 14px;
+  color: #949398FF; /* Label color */
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
-.sell_book_form_select {
+.sell_book_form_control, .sell_book_form_select {
   border-radius: 8px;
-  border: none;
+  border: 1px solid #949398FF;
   padding: 12px;
-  font-size: 16px;
-  background-color: #f5f7fa;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
 }
 
-.sell_book_form_select:focus {
-  border-color: #66a6ff;
-  box-shadow: 0px 0px 5px #66a6ff;
+.sell_book_form_control.is-invalid {
+  border-color: #dc3545; /* Red border for invalid inputs */
 }
 
-.card_book_image_section {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin: 0 auto;
+.sell_book_form_check {
+  color: #949398FF;
 }
 
-.sell_book_form_check input {
-  margin-right: 8px;
-  background-color: #66a6ff;
-  border-color: #ff6b6b;
-}
-
-.sell_book_form_check label {
-  font-weight: bold;
-  color: #fff;
-}
-
-.book_form_section .sell_book_form_check {
-  margin-bottom: 15px;
-}
-
-@media (max-width: 768px) {
-  .book_deatils_heading {
-    font-size: 28px;
-  }
-
-  .card-book-image-section {
-    margin-bottom: 20px;
-  }
-
-  .book_form_section {
-    margin-bottom: 15px;
-  }
-}
+/* Button styling */
 .book_button {
-  background-color: #ff6b6b;
-  color: white;
-  padding: 10px 20px;
+  background-color: #949398FF; /* Grey button */
+  color: #fff;
   border: none;
+  padding: 12px 30px;
   border-radius: 8px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  width: 100px;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .book_button:hover {
-  background-color: #ff3f3f;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #F4DF4EFF; /* Yellow on hover */
+  color: #949398FF; /* Grey text on hover */
+}
+
+/* Image section styling */
+.card_book_image_section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card_book_image_section img {
+  border-radius: 12px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid #949398FF; /* Grey border around the image */
 }

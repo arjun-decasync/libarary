@@ -69,3 +69,7 @@
 .card-img-top:hover {
   transform: scale(1.05);
 }
+
+.nav_color_change{
+  color: #f8f9fa;
+}

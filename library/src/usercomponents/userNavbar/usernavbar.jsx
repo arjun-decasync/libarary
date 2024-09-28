@@ -17,9 +17,9 @@ const usernavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto font_size_adjustment">
-              <Nav.Link href="#about">Buy Books</Nav.Link>
-              <Nav.Link href="#contact">Sell your Books</Nav.Link>
-              <Nav.Link href="/">Logout</Nav.Link>
+              <Nav.Link className="nav_color_change" href="/buyingHomepage">Buy Books</Nav.Link>
+              <Nav.Link className="nav_color_change" href="/sellingHomepage">Sell your Books</Nav.Link>
+              <Nav.Link className="nav_color_change" href="/">Logout</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

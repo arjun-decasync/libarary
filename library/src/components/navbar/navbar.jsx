@@ -27,9 +27,15 @@ const navbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto font_size_adjustment">
-            <Nav.Link href="#about">About Us</Nav.Link>
-            <Nav.Link href="#contact">Contact Us</Nav.Link>
-            <Nav.Link onClick={handleShow}>Login/Signup</Nav.Link>
+            <Nav.Link className="nav_color_change" href="#about">
+              About Us
+            </Nav.Link>
+            <Nav.Link className="nav_color_change" href="#contact">
+              Contact Us
+            </Nav.Link>
+            <Nav.Link className="nav_color_change" onClick={handleShow}>
+              Login/Signup
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -66,25 +72,6 @@ const navbar = () => {
                   </Button>
                 </Card>
               </Col>
-
-              {/* <Col xs={12}>
-                <Card style={{ width: "auto", margin: "5px" }}>
-                  <Card.Img
-                    variant="top"
-                    src="https://d3525k1ryd2155.cloudfront.net/i/en20/homepage-slides/books-on-sale-s-1150w.jpg"
-                  />
-                  <Button variant="success">Buy Books</Button>
-                </Card>
-              </Col>
-              <Col xs={12}>
-                <Card style={{ width: "auto", margin: "5px" }}>
-                  <Card.Img
-                    variant="top"
-                    src="https://www.clankart.com/user-uploads/blog/What_to_do_with_old_books.webp"
-                  />
-                  <Button variant="warning">Sell Your Books</Button>
-                </Card>
-              </Col> */}
             </Row>
           </Container>
         </Offcanvas.Body>

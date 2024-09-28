@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 import { useNavigate } from "react-router-dom";
+import { FaSpinner } from "react-icons/fa";
 
 const sellingAddedBookdetails = () => {
   const [bookDetails, setBookDetails] = useState(null); // State to store book details
@@ -32,10 +33,12 @@ const sellingAddedBookdetails = () => {
       await fetch(`http://localhost:3001/books/${id}`, {
         method: "DELETE",
       });
+      alert("Book deleted successfully!");
       // Update the frontend after deleting the book
       setBookDetails(bookDetails.filter((book) => book._id !== id));
     } catch (error) {
       console.error("Error deleting book:", error);
+      alert("Error deleting book. Please try again later.");
     }
   };
 
@@ -43,9 +46,13 @@ const sellingAddedBookdetails = () => {
     navigate("/sellingAddbook", { state: { book } });
   };
 
-  // Render loading state if book details are not yet fetched
   if (!bookDetails) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container">
+        <FaSpinner className="spinner" />
+        <h2>Loading...</h2>
+      </div>
+    );
   }
 
   return (
@@ -76,9 +83,9 @@ const sellingAddedBookdetails = () => {
               </Col>
               <Col xs={12} sm={6} md={3}>
                 <div className="sellind_add_book_veiw_details">
-                  <p> {book.bookPrice} Rs</p>
-                  <p>No of copies: {book.copies}</p>
                   <p>{book.bookValue}</p>
+                  <p>No of copies: {book.copies}</p>
+                  <p> {book.bookPrice} Rs</p>
                 </div>
               </Col>
               <Col xs={12} sm={6} md={3}>
