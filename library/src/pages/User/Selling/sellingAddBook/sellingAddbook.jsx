@@ -13,6 +13,29 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const sellingAddbook = () => {
+  const [imageSrc, setImageSrc] = useState(
+    "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726704000&semt=ais_hybrid"
+  ); //new
+  const [selectedFile, setSelectedFile] = useState(null); //new
+
+  // Handle image upload when clicked
+  const handleImageClick = () => {
+    document.getElementById("fileInput").click();
+  }; //new
+
+  // Handle image selection
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageSrc(reader.result); // Update the displayed image
+      };
+      reader.readAsDataURL(file);
+      setSelectedFile(file);
+    }
+  }; //new
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -97,7 +120,28 @@ const sellingAddbook = () => {
     } catch (error) {
       console.error("There was an error submitting the form", error);
       alert("Error adding/updating the book. Please try again.");
-    }
+    };
+
+
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+
+      try {
+        const response = await axios.post('http://localhost:5000/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        console.log(response.data.message);
+      } catch (error) {
+        console.error('Error uploading image', error);
+      }
+    };//new
+
+
+
+
   };
 
   return (
@@ -116,11 +160,28 @@ const sellingAddbook = () => {
 
           <Form onSubmit={handleSubmit}>
             <Row>
-              <Col xs={12} sm={12} md={12}>
+              {/* <Col xs={12} sm={12} md={12}>
                 <div className="card_book_image_section">
                   <Card.Img
                     variant="top"
                     src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726704000&semt=ais_hybrid"
+                  />
+                </div>
+              </Col> */}
+
+              <Col xs={12} sm={12} md={12}>
+                <div className="card_book_image_section">
+                  <Card.Img
+                    variant="top"
+                    src={imageSrc}
+                    onClick={handleImageClick}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <input
+                    id="fileInput"
+                    type="file"
+                    style={{ display: "none" }}
+                    onChange={handleFileChange}
                   />
                 </div>
               </Col>

@@ -4,6 +4,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 
+const multer = require('multer');//new
+const fs = require('fs');//new
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -152,6 +155,49 @@ app.get("/books_filter", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+
+
+
+const imageSchema = new mongoose.Schema({
+  imageName: String,
+  imageData: Buffer,
+});
+
+const Image = mongoose.model('Image', imageSchema);
+
+// Multer setup for handling image uploads
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
+app.post('/upload', upload.single('image'), async (req, res) => {
+  try {
+      const newImage = new Image({
+          imageName: req.file.originalname,
+          imageData: req.file.buffer
+      });
+      await newImage.save();
+      res.json({ message: 'Image uploaded successfully!' });
+  } catch (error) {
+      res.status(500).send('Error uploading image');
+  }
+});
+
+// Fetching the image from the database
+app.get('/image/:id', async (req, res) => {
+  try {
+      const image = await Image.findById(req.params.id);
+      if (!image) {
+          return res.status(404).send('Image not found');
+      }
+      res.contentType('image/jpeg');
+      res.send(image.imageData);
+  } catch (error) {
+      res.status(500).send('Error fetching image');
+  }
+});
+
+
 
 
 

@@ -65,14 +65,28 @@ const sellingAddedBookdetails = () => {
             </h1>
 
             <Row key={index}>
-              <Col xs={12} sm={6} md={3}>
+              {/* <Col xs={12} sm={6} md={3}>
                 <div className="selling_add_book_veiw_image">
                   <Card.Img
                     variant="top"
                     src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726704000&semt=ais_hybrid"
                   />
                 </div>
+              </Col> */}
+
+              <Col xs={12} sm={6} md={3}>
+                <div className="selling_add_book_veiw_image">
+                  <Card.Img
+                    variant="top"
+                    src={
+                      book.imageURL ||
+                      "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726704000&semt=ais_hybrid"
+                    } // Default image if book.imageURL is null
+                    alt={book.bookName}
+                  />
+                </div>
               </Col>
+
               <Col xs={12} sm={6} md={3}>
                 <div className="sellind_add_book_veiw_details">
                   <p> {book.bookName}</p>
